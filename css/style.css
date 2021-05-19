@@ -36,3 +36,13 @@ input[type="number"] {
   -moz-appearance: textfield;
   border: none;
 }
+
+@media only screen and (max-width: 730px) {
+  #canvas {
+    width: 300px;
+    height: 300px;
+  }
+  #leftSideHeading {
+    font-size: 30px;
+  }
+}
