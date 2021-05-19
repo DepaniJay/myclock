@@ -1,0 +1,42 @@
+.hidden {
+  display: none;
+}
+
+body {
+  /* background-color: #f4f4f4; */
+}
+
+.timerInput {
+  display: inline-block;
+}
+
+#collapseTwo form input,
+#alarmForm input,
+#collapseThree form select {
+  width: 70px;
+}
+
+.timerColon {
+  margin: 0px 8px;
+}
+
+.inputYear {
+  width: 80px !important;
+}
+
+/* .removeBorder {
+} */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  border: none;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  border: none;
+}

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Welcome to My Clock Website</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">JD Times</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container my-3 text-center">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Play with Stopwatch, Timer and Alarm</h1>
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="false" aria-controls="collapseOne">
+                                    Stopwatch
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <h1 id="stopwatchTime">00:00:00</h1>
+                                <br>
+                                <button type="button" class="btn btn-primary hidden" id="resetBtn">Reset</button>
+                                <button type="button" class="btn btn-success mx-2" id="startBtn">Start</button>
+                                <button type="button" class="btn btn-danger hidden" id="stopBtn">Stop</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                    aria-expanded="false" aria-controls="collapseTwo">
+                                    Timer
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <form>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control timerInput boxDesign"
+                                                id="timerHour" placeholder="00h">
+                                        </div>
+                                        <div class="timerInput timerColon">:</div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control timerInput" id="timerMinutes"
+                                                placeholder="00m">
+                                        </div>
+                                        <div class="timerInput timerColon">:</div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control timerInput" id="timerSecond"
+                                                placeholder="00s">
+                                        </div>
+                                    </div>
+                                    <span class="text-danger my-2" id="timerError"></span>
+                                    <button type="submit" class="btn btn-danger hidden"
+                                        id="timerDeleteBtn">Delete</button>
+                                    <button type="submit" class="btn btn-success mx-2" id="timerStartBtn">Start</button>
+                                    <button type="submit" class="btn btn-warning mx-2 hidden"
+                                        id="timerStopBtn">Stop</button>
+                                    <button type="submit" class="btn btn-primary ml-2 hidden"
+                                        id="timerResetBtn">Reset</button>
+                                    <button type="submit" class="btn btn-primary hidden" id="timerAddTimeBtn">+
+                                        1:00m</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Alarm
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordion">
+                            <div class="card-body">
+                                <div>
+                                    <audio id="myAudio">
+                                        <source src="Without-Regret-EZL014601.mp3" type="audio/mp3">
+                                    </audio>
+                                </div>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Important!</strong> <b>Time is based on a 24 hour system</b>.if you want
+                                    to set PM alarm then add 12 hour to your actual hour. for example you want to set 5
+                                    PM then just right 5 + 12 = 17 hours.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form id="alarmForm">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control timerInput inputYear"
+                                                id="alarmYear" placeholder="yyyy">
+                                        </div>
+                                        <div class="timerInput timerColon">-</div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control timerInput" id="alarmMonth"
+                                                placeholder="mm">
+                                        </div>
+                                        <div class="timerInput timerColon">-</div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control mr-3 timerInput" id="alarmDay"
+                                                placeholder="dd">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control timerInput" id="alarmHour"
+                                                placeholder="hh">
+                                        </div>
+                                        <div class="timerInput timerColon">:</div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control timerInput" id="alarmMinutes"
+                                                placeholder="mm">
+                                        </div>
+                                        <!-- <div class="timerInput timerColon">:</div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control timerInput" id="alarmSecond"
+                                                placeholder="ss">
+                                        </div> -->
+                                    </div>
+                                    <span class="text-danger my-2" id="alarmError"></span>
+                                    <button type="submit" class="btn btn-success mx-2 my-3" id="alarmSaveBtn">Set
+                                        Alarm</button>
+                                    <button type="submit" class="btn btn-primary hidden" id="alamEditBtn">Edit
+                                        Alarm</button>
+
+                                </form>
+                                <div class="text-left">
+                                    <h1>Your Alarms</h1>
+                                    <hr>
+                                </div>
+                                <div id="alarms">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <h1>Amazing Clock</h1>
+                <canvas id="canvas" class="my-3" width="400" height="400" style="background-color:white">
+                </canvas>
+                <h1 id="digitalClock" onload="showDigitalTime()"></h1>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="js/script.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
